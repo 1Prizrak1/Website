@@ -6,46 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Основы frontend разработки</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="./jquery.connections.js"></script>
+    <script>
+        let header = $('#header');
+        let scrollPrev = 0;
+        let scrollToTop = 0;
+
+        $(window).scroll(function() {
+        var scrolled = $(window).scrollTop();
+        if ( scrolled > 100 && scrolled > scrollPrev ) {
+            header.addClass('header-out');
+            scrollToTop = scrolled;
+        } else if(scrolled <  scrollToTop - 250  || scrolled < 250 ) {
+            header.removeClass('header-out');
+        }
+        scrollPrev = scrolled;   
+        });
+    </script>
 </head>
+
+
 <body>
     <!-- Header start -->
-    <header class="header">
+    <header id="header" class="header" style=" z-index: 15;">   
         <div class="wrapper">
             <div class="header__wrapper">
                 <nav class="header__nav">
                     <ul class="header__list">
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Основы frontend разработки</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Чему мы учим</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Программа вебинара</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Наш спикер</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Ваш результат</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Отзывы</a>   
-                        </li>
-                        <li class="header__item">
-                            <a href="#!" class="header__link">Форма для регистрации</a>   
-                        </li>
+                        <div class="header__item">
+                            <a href="#" class="header__link">Начальный экран</a>   
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen2" class="header__link">Чему мы учим</a>  
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen3" class="header__link">Программа вебинара</a>   
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen4" class="header__link">Наш спикер</a>   
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen5" class="header__link">Ваш результат</a>   
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen6" class="header__link">Отзывы</a>   
+                        </div>
+                        <div class="header__item">
+                            <a href="#screen7" class="header__link">Форма для регистрации</a>   
+                        </div>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <!-- Header end -->
-
     <main class="main">
         <!-- screen1 start-->
         <section class="screen1">
-                <div class="wrapper">
+                <div class="wrapper" style="position: relative;">
                     <h1 class="screen1__title">
                         Бесплатный вебинар
                     </h1>
@@ -55,20 +74,23 @@
                     <p class="screen1__subtitle2">
                         Становись разработчиком - сделай свою жизнь хуже
                     </p>
-                    <button type="submit" class="search-from__submit"> 
-                        Записаться
+                    <a href="#screen7">
+                    <button type="submit" class="search-from__submit" style="position: relative"> 
+                        Записаться 
                     </button>
+                    </a>
+                    <img src="./img/back.png" style="position:absolute ; width: 1000px; left: 25%; top: 0px; transform: rotate(270deg);opacity: 0.3;"/>
                 </div>
         </section>
-        <!-- screen1 end-->
+        <!-- screen1 end--> 
 
         <!-- screen2 start-->
-        <section class="screen2">
-                <h2 class="screen2__title">
+        <section id="screen2" class="screen2">
+                <h2  class="screen2__title">
                     Чему мы научим
                 </h2>
                 <div class="lines2">
-                    <div class="line2">
+                    <div class="line">
                         <div class="icon2">
                             1
                         </div>
@@ -76,7 +98,7 @@
                             Верстать адаптивные веб-страницы на HTML/CSS
                         </div>
                     </div>
-                    <div class="line2">
+                    <div class="line">
                         <div class="icon2">
                             2
                         </div>
@@ -84,7 +106,7 @@
                             Писать код на JavaScript
                         </div>
                     </div>
-                    <div class="line2">
+                    <div class="line">
                         <div class="icon2">
                             3
                         </div>
@@ -97,53 +119,52 @@
         <!-- screen2 end-->
 
         <!-- screen3 start-->
-        <section class="screen3">
+        <section id="screen3" class="screen3">
             <h2 class="screen3__title">
                 Программа вебинара
             </h2>
-            <div class="lines3">
-                <div class="line3">
-                    Изучение основ HTML
+                <div class="line1">
+                    Изучение основ HTML   
                 </div>
-                <div class="line3">
+                <div class="line2">
                     Изучение CSS
                 </div>
                 <div class="line3">
                     Изучение JavaScript
                 </div>
-                <div class="line3">
+                <div class="line4">
                     Создание проекта
                 </div>
-                <div class="line3">
+                <div class="line5">
                     Защита выпускного пректа
                 </div>
-            </div>
         </section>
         <!-- screen3 end-->
 
         <!-- screen4 start-->
-        <section class="screen4">
+        <section id="screen4" class="screen4">
             <section class="screen4">
                 <h2 class="screen4__title">
                     Наш спикер
                 </h2>
-                <div class="wrapper4">
-                    <img src="./img/screen4.png" width="570" height="450" alt="">
+                <div class="wrapper4" style="position: relative">
+                        <img src="./img/back.png" style="position: absolute; width: 1000px; left: -40px; top: -250px;transform: rotate(90deg);opacity: 0.3;"/>
+                        <img src="./img/screen4.png" width="570" height="450" alt=""style="position: relative">                   
                     <div class="block4">
                         <div class="text4">
-                            <div class="line4" style="font-weight: 600; font-size: 40px; line-height: 47px; color: #FFFFFF;">
+                            <div class="lines4" >
                                 Георгий Нуленко
                             </div>
-                            <div class="line4">
+                            <div class="lines4">
                                 • Лучший программист на планете
                             </div>
-                            <div class="line4">
+                            <div class="lines4">
                                 • Выбил платину во всех Dark Souls
                             </div>
-                            <div class="line4">
+                            <div class="lines4">
                                 • Смотрит аниме
                             </div>
-                            <div class="line4">
+                            <div class="lines4">
                                 • Первым в мире получил кошко-жену от Коммунистической партии Китая 
                             </div>
                         </div>
@@ -154,24 +175,24 @@
         <!-- screen4 end-->
 
         <!-- screen5 start-->
-        <section class="screen5">
+        <section id="screen5" class="screen5">
             <h2 class="screen5__title">
                 После вебинара Вы:
             </h2>
             <div class="lines5">
-                <div class="line5">
+                <div class="linesc5">
                     • Откроете для себя мир Web- разработки
                 </div>
-                <div class="line5">
+                <div class="linesc5">
                     • Изучите HTML/CSS
                 </div>
-                <div class="line5">
+                <div class="linesc5">
                     • Сможете программировать на JavaScript
                 </div>
-                <div class="line5">
+                <div class="linesc5">
                     • Научитесь делать работу раньше дедлайна
                 </div>
-                <div class="line5">
+                <div class="linesc5">
                     • Сделаете свой собсвенный проект 
                 </div>
             </div>
@@ -179,7 +200,7 @@
         <!-- screen5 end-->
 
         <!-- screen6 start-->
-        <section class="screen6">
+        <section id="screen6" class="screen6">
             <h2 class="screen6__title">
                 Через наш курс прошло уже 9 000 000 человек. 
                 Начни сейчас и присоединись к этой 
@@ -196,39 +217,43 @@
         <!-- screen6 end-->
 
         <!-- screen7 start-->
-        <section class="screen7">
-            <h2 class="screen7__title">
+        <section id="screen7" class="screen7" style="position:relative">
+            <img src="./img/back.png" style="position:absolute ; width: 900px; left: 42%; top: -160px; transform: rotate(270deg);opacity: 0.3;"/>
+            <h2 class="screen7__title" style="position:relative">
                 Зарегистрируйся
-                И получи бонус сейчас
+                и получи бонус уже сейчас
             </h2>
-            <div class="lines7">
-                <button type="submit" class="search-from__submit7"> 
-                    Оставить заявку
-                </button>
-                <div class="line7">
-                    <input type="field" class="search-from__field7" placeholder="ФИО" style="text-align: center;">
+            <form action="telegram.php" method="POST" class="form" style="z-index: 10;">
+                <div class="lines7">
+                    <button type="submit" class="search-from__submit7" style="position:relative"> 
+                        Оставить заявку
+                    </button>
+                    <div class="line7">
+                        <input name="Name" type="text" class="search-from__field7" placeholder="ФИО" style="text-align: center;" style="position:relative">
+                    </div>
+                    <div class="line7">
+                        <input name="Email" type="text" class="search-from__field7" placeholder="Email" style="text-align: center;" style="position:relative">
+                    </div>
                 </div>
-                <div class="line7">
-                    <input type="field" class="search-from__field7" placeholder="Email" style="text-align: center;">
-                </div>
+            </form>
         </section>
         <!-- screen7 end-->
     </main>
     <footer class="footer">
-        <div class="linesf">
-            <div class="linef">
-                Информация о компании 
-                https://www.youtube.com/watch?v=dQw4w9WgXcQ
-            </div>
-            <div class="linef">
-                По всем вопросам обращаться 
-                https://www.youtube.com/watch?v=dQw4w9WgXcQ
-            </div>
-            <div class="linef">
-                Политика конфиденциальности 
-                https://www.youtube.com/watch?v=dQw4w9WgXcQ
-            </div>
+        
+
+        <div class="row">
+        <ul>
+        <li><a href="https://www.youtube.com/watch?v=pWJOxvcp7xk&t=71s">Обратная связь</a></li>
+        <li><a href="https://www.youtube.com/watch?v=vWujTfKiXNg&ab_channel=Rooky">Наши сотрудники</a></li>
+        <li><a href="https://www.youtube.com/watch?v=gzVs8Hy2t-Q&t=35s&ab_channel=Liirsh">Политика говна</a></li>
+        </ul>
         </div>
-    </footer>
+        <script src="scripts\jquery-3.6.1.slim.min.js"></script>
+        <div class="row1">
+            © ООО «Дай деняг», 2022.
+        </div>
+    </div>
+</footer>
 </body>
 </html>
